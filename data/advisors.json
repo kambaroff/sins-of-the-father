@@ -1,0 +1,7 @@
+[
+  { "id": "marshal", "name": "The Marshal", "domain": "war", "skill": "martial", "upkeep": 1, "start_loyalty": 2, "default_seat": true, "betrayal_event": "marshal_defects", "betrayal_doom_mod": 2 },
+  { "id": "steward", "name": "The Steward", "domain": "economy", "skill": "stewardship", "upkeep": 1, "start_loyalty": 2, "default_seat": true, "betrayal_event": "steward_defects", "betrayal_doom_mod": 1 },
+  { "id": "priest", "name": "The Court Priest", "domain": "faith", "skill": "charm", "upkeep": 1, "start_loyalty": 2, "default_seat": true, "betrayal_event": "priest_defects", "betrayal_doom_mod": 1 },
+  { "id": "spymaster", "name": "The Wren", "domain": "intrigue", "skill": "cunning", "upkeep": 1, "start_loyalty": 2, "default_seat": false, "betrayal_event": "spymaster_defects", "betrayal_doom_mod": 2 },
+  { "id": "scholar", "name": "The Scholar", "domain": "knowledge", "skill": "learning", "upkeep": 1, "start_loyalty": 2, "default_seat": false, "betrayal_event": "scholar_defects", "betrayal_doom_mod": 1 }
+]

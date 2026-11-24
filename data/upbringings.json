@@ -1,0 +1,8 @@
+[
+  { "id": "war_camp", "name": "Raised at the war-camp", "cost": 2, "sliders": { "bearing": -1, "valor": 1 }, "skills": { "martial": 1 }, "origin_advisor": "marshal" },
+  { "id": "abbey", "name": "Sent to the abbey", "cost": 1, "sliders": { "faith": -1, "temperament": 1, "temperance": 1, "appetite": 1 }, "skills": {}, "origin_advisor": "priest" },
+  { "id": "counting_house", "name": "Apprenticed at the counting-house", "cost": 2, "sliders": { "purse": -1 }, "skills": { "stewardship": 1 }, "origin_advisor": "steward" },
+  { "id": "spymaster_ward", "name": "Ward of the spymaster", "cost": 2, "sliders": { "trust": -1 }, "skills": { "cunning": 1 }, "origin_advisor": "spymaster" },
+  { "id": "scholars", "name": "Tutored by scholars", "cost": 1, "sliders": { "wrath": 1 }, "skills": { "learning": 1 }, "origin_advisor": "scholar" },
+  { "id": "court_indulged", "name": "Indulged at court", "cost": 0, "sliders": { "purse": -1, "bearing": -1, "temperance": -1, "appetite": -1 }, "skills": {}, "origin_advisor": "" }
+]

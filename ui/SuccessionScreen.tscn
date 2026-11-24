@@ -1,0 +1,58 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://ui/SuccessionScreen.gd" id="1"]
+
+[node name="SuccessionScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1")
+
+[node name="Backdrop" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.16, 0.11, 0.07, 1)
+
+[node name="Panel" type="PanelContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_top = 24.0
+offset_right = -32.0
+offset_bottom = -24.0
+
+[node name="Scroll" type="ScrollContainer" parent="Panel"]
+
+[node name="VBox" type="VBoxContainer" parent="Panel/Scroll"]
+size_flags_horizontal = 3
+theme_override_constants/separation = 6
+
+[node name="TitleLabel" type="Label" parent="Panel/Scroll/VBox"]
+horizontal_alignment = 1
+text = "THE CROWN PASSES"
+
+[node name="InheritLabel" type="Label" parent="Panel/Scroll/VBox"]
+text = ""
+
+[node name="NameHeader" type="Label" parent="Panel/Scroll/VBox"]
+text = "YOUR NAME AND HOUSE:"
+
+[node name="NameInput" type="LineEdit" parent="Panel/Scroll/VBox"]
+placeholder_text = "Ruler's name (e.g. Béla I)"
+text = "Béla I"
+
+[node name="HouseInput" type="LineEdit" parent="Panel/Scroll/VBox"]
+placeholder_text = "House name (e.g. Árpád)"
+text = "Béla"
+
+[node name="LessonHeader" type="Label" parent="Panel/Scroll/VBox"]
+text = "DEATHBED LESSON — what does the dying ruler teach?"
+
+[node name="LessonBox" type="VBoxContainer" parent="Panel/Scroll/VBox"]
+
+[node name="OriginHeader" type="Label" parent="Panel/Scroll/VBox"]
+text = "UPBRINGING:"
+
+[node name="OriginBox" type="VBoxContainer" parent="Panel/Scroll/VBox"]
+
+[node name="TakeButton" type="Button" parent="Panel/Scroll/VBox"]
+text = "Take the throne ▸"

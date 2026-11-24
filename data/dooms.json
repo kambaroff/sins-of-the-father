@@ -1,0 +1,5 @@
+[
+  { "id": "steppe_horde", "type": "military", "base": 6, "title": "The Steppe Horde", "prep_weights": { "walls": 0, "nomad_pact": 3 } },
+  { "id": "black_death", "type": "plague", "base": 7, "title": "The Black Death", "prep_weights": { "nomad_pact": 0 } },
+  { "id": "peasants_revolt", "type": "social", "base": 6, "title": "The Peasants' Revolt", "prep_weights": { "nomad_pact": 0 } }
+]

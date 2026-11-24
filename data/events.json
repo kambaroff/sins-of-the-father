@@ -1,0 +1,1292 @@
+[
+  {
+	"id": "coronation",
+	"slot": "opening",
+	"category": "court",
+	"season": "spring",
+	"title": "The Old King Is Cold",
+	"body": "Your father is three days dead, and already the court watches to see what kind of ruler you will be. Your first act as king will be remembered.",
+	"choices": [
+	  { "text": "Open the treasury for a lavish coronation feast", "effects": { "treasury": -2, "unrest": -2 }, "traits": { "bearing": -1 } },
+	  { "text": "Forgo the feast — the realm's coin is not for pomp", "effects": { "faith": -1 }, "traits": { "temperance": 1 } },
+	  { "text": "Pardon the prisoners in your father's dungeons", "effects": { "unrest": -1, "faith": 1 }, "traits": { "temperament": 1 } }
+	]
+  },
+  {
+	"id": "steppe_refugees_arrive",
+	"slot": "consequence",
+	"category": "court",
+	"season": "any",
+	"title": "Refugees from the Steppe",
+	"body": "A ragged column of nomads — mothers, elders, hard-eyed horsemen — reaches your border, fleeing the very Horde that darkens your own horizon. They kneel and beg for refuge.",
+	"choices": [
+	  { "text": "Shelter them — their riders know the Horde's ways", "effects": { "treasury": -1, "unrest": 1 }, "traits": { "temperament": 1 }, "prep": { "nomad_pact": 2 }, "flags": [ { "id": "refugees_sheltered", "event_id": "steppe_refugees_settle", "in_hands": 3 } ] },
+	  { "text": "Turn them away; you have troubles enough", "effects": { "faith": -1 } },
+	  { "text": "Seize all they have and sell them — the steppe owes you", "effects": { "treasury": 4, "unrest": 1 }, "traits": { "temperament": -1, "vengefulness": -1 }, "doom_mod": 1, "flags": [ { "id": "refugees_wronged", "event_id": "steppe_refugees_spoils", "in_hands": 3 } ] }
+	]
+  },
+  {
+	"id": "steppe_refugees_settle",
+	"slot": "consequence",
+	"category": "court",
+	"season": "any",
+	"title": "Strangers in the Halls",
+	"body": "The nomads have wintered among your people. Their scouts already map the Horde's outriders, and their smiths teach your riders the recurve bow — but your lords grumble at strangers seated at their tables.",
+	"choices": [
+	  { "text": "Arm them as auxiliaries and ride with them", "effects": { "treasury": -1, "unrest": 1 }, "traits": { "martial": 1, "temperament": 1 }, "prep": { "nomad_pact": 3, "host": 1 } },
+	  { "text": "Keep them fed, but apart", "effects": { "treasury": -1 }, "prep": { "nomad_pact": 1 } },
+	  { "text": "Now winter's past, expel them", "effects": { "unrest": -1 }, "traits": { "temperament": -1 }, "doom_mod": 1 }
+	]
+  },
+  {
+	"id": "steppe_refugees_spoils",
+	"slot": "consequence",
+	"category": "war",
+	"season": "any",
+	"title": "Blood Money",
+	"body": "The nomads you sold made your coffers heavy — and made you an enemy. Word reached the khan that this realm trades the desperate for coin, and the Horde now rides with a grudge. But you are rich, and gold buys many things.",
+	"choices": [
+	  { "text": "Pour the plunder into tribute — buy the khan's mercy", "effects": { "treasury": -3 }, "prep": { "tribute": 4 } },
+	  { "text": "Raise a Grand Host with the coin", "effects": { "treasury": -3, "unrest": -1 }, "traits": { "martial": 1 }, "prep": { "host": 3 } },
+	  { "text": "Pocket it; the walls will hold", "effects": { "faith": -1 }, "doom_mod": 1 }
+	]
+  },
+  {
+	"id": "tax_collector",
+	"slot": "seasonal",
+	"category": "economy",
+	"season": "spring",
+	"title": "The Tax Collector's Smile",
+	"body": "Your coffers are thin. The collector waits with his ledger open and suggests, gently, that the peasants might bear a little more.",
+	"choices": [
+	  { "text": "Raise taxes", "effects": { "treasury": 3, "unrest": 2 } },
+	  { "text": "Spare the peasants", "effects": { "unrest": -1, "faith": 1 }, "traits": { "temperament": 1 } }
+	]
+  },
+  {
+	"id": "foreign_caravan",
+	"slot": "seasonal",
+	"category": "economy",
+	"season": "spring",
+	"title": "The Foreign Caravan",
+	"body": "Eastern merchants spread silk and spice before the throne — and ask, between courtesies, how your walls are manned.",
+	"choices": [
+	  { "text": "Trade freely", "effects": { "treasury": 3, "unrest": 1 } },
+	  { "text": "Tax them heavily", "effects": { "treasury": 1, "faith": -1 }, "traits": { "purse": -1 } },
+	  { "text": "Rob them, blame bandits", "effects": { "treasury": 4, "faith": -2 }, "traits": { "temperament": -1 }, "flags": [ { "id": "caravan_revenge", "event_id": "mercenaries_return", "in_hands": 4 } ] }
+	]
+  },
+  {
+	"id": "steppe_envoy",
+	"slot": "random",
+	"category": "court",
+	"season": "any",
+	"title": "The Steppe Envoy",
+	"body": "A rider from the khan's court arrives bearing gifts and thinly veiled threats.",
+	"choices": [
+	  { "text": "Honour him lavishly", "effects": { "treasury": -1 } },
+	  { "text": "Repay his veiled threats with open insult", "effects": { "unrest": -1 }, "traits": { "bearing": -1, "vengefulness": -1 }, "doom_mod": 2 }
+	]
+  },
+  {
+	"id": "dancing_plague",
+	"slot": "random",
+	"category": "folk",
+	"season": "summer",
+	"title": "The Dancing Plague",
+	"body": "A woman has danced for six days. Forty have joined her. Physicians prescribe more dancing.",
+	"choices": [
+	  { "text": "Build them a stage", "effects": { "treasury": -2, "unrest": 1 } },
+	  { "text": "Declare it demonic", "effects": { "faith": 1, "unrest": 1 }, "traits": { "faith": -1 } },
+	  { "text": "Charge admission", "effects": { "treasury": 2, "faith": -1 }, "traits": { "purse": -1 } }
+	]
+  },
+  {
+	"id": "war_on_cats",
+	"slot": "random",
+	"category": "faith",
+	"season": "any",
+	"title": "The War on Cats",
+	"body": "A papal letter declares the cat an agent of Satan. The rats are delighted.",
+	"choices": [
+	  { "text": "Enforce the purge", "effects": { "faith": 2 }, "traits": { "faith": -1 }, "flags": [ { "id": "rats_unleashed", "event_id": "rat_plague", "in_hands": 4 } ] },
+	  { "text": "Quietly protect the cats", "effects": { "faith": -1, "unrest": -1 }, "traits": { "faith": 1 } },
+	  { "text": "Tax cat-owners for consorting with the Devil", "effects": { "treasury": 1, "faith": -1 }, "traits": { "purse": -1 } }
+	]
+  },
+  {
+	"id": "bountiful_harvest",
+	"slot": "seasonal",
+	"category": "economy",
+	"season": "autumn",
+	"title": "A Bountiful Harvest",
+	"body": "The granaries overflow. The bishop suggests gratitude is best expressed in coin.",
+	"choices": [
+	  { "text": "Tithe generously", "effects": { "treasury": -1, "faith": 2 } },
+	  { "text": "Keep it all", "effects": { "treasury": 3, "faith": -1, "unrest": 1 }, "traits": { "purse": -1 } }
+	]
+  },
+  {
+	"id": "long_winter",
+	"slot": "seasonal",
+	"category": "economy",
+	"season": "winter",
+	"title": "The Long Winter",
+	"body": "Snow buries the roads. In the villages they have begun to eat the seed corn.",
+	"choices": [
+	  { "text": "Open the granary", "effects": { "treasury": -2, "unrest": -2, "faith": 1 }, "traits": { "temperament": 1 } },
+	  { "text": "Let the weak perish", "effects": { "unrest": 3, "faith": -1 }, "traits": { "temperament": -1 } }
+	]
+  },
+  {
+	"id": "brothers_ambition",
+	"slot": "plot",
+	"category": "court",
+	"season": "any",
+	"title": "Your Brother's Ambition",
+	"body": "Your younger brother has been asking questions about the succession — and asking them at tables that have never been friendly to you.",
+	"choices": [
+	  { "text": "Have him drowned", "effects": { "unrest": -1, "faith": -1 }, "traits": { "trust": -1, "vengefulness": -1 } },
+	  { "text": "Marry him off abroad", "effects": { "treasury": -1, "unrest": -1 } },
+	  { "text": "Trust him", "effects": {}, "traits": { "trust": 1 } }
+	]
+  },
+  {
+	"id": "mercenaries_return",
+	"slot": "plot",
+	"category": "war",
+	"season": "any",
+	"title": "The Caravan's Revenge",
+	"body": "The merchants you robbed have returned, and they have hired swords.",
+	"choices": [
+	  { "text": "Pay them off", "effects": { "treasury": -3 } },
+	  { "text": "Put them to the sword", "effects": { "unrest": 2 }, "traits": { "temperament": -1 } }
+	]
+  },
+  {
+	"id": "holy_war",
+	"slot": "plot",
+	"category": "faith",
+	"season": "any",
+	"title": "The Holy War",
+	"body": "The Pope preaches holy war against a neighbour whose lands are rich and whose sins, on inspection, prove sufficient.",
+	"choices": [
+	  { "text": "Answer the call, plunder", "effects": { "treasury": 4, "unrest": 2, "faith": 2 }, "traits": { "faith": -1 } },
+	  { "text": "Send coin, stay home", "effects": { "treasury": -2, "faith": 1 } },
+	  { "text": "Refuse the Pope", "effects": { "faith": -3, "unrest": 1 }, "traits": { "faith": 1 } }
+	]
+  },
+  {
+	"id": "heretic_in_square",
+	"slot": "random",
+	"category": "faith",
+	"season": "any",
+	"title": "A Heretic in the Square",
+	"body": "A preacher insists the meek shall inherit the earth. The bishop finds this teaching dangerous to the tithe.",
+	"choices": [
+	  { "text": "Burn him for the glory of God", "effects": { "unrest": -1, "faith": 2 }, "traits": { "faith": -1 } },
+	  { "text": "Tax his followers instead", "effects": { "treasury": 2, "unrest": 1 }, "traits": { "cunning": 1 } },
+	  { "text": "Let him speak; smile politely", "effects": { "unrest": 1, "faith": -1 } }
+	]
+  },
+  {
+	"id": "plague_among_swine",
+	"slot": "random",
+	"category": "folk",
+	"season": "summer",
+	"title": "A Plague Among the Swine",
+	"body": "Disease thins the herds. The physician blames miasma, the priest blames sin, the peasants blame you.",
+	"choices": [
+	  { "text": "Fund a quarantine", "effects": { "treasury": -2, "unrest": -1 }, "traits": { "stewardship": 1 } },
+	  { "text": "Declare a day of repentance", "effects": { "faith": 1, "unrest": 1 } },
+	  { "text": "Burn a witch to calm the mob", "effects": { "unrest": -2 }, "traits": { "temperament": -1 } }
+	]
+  },
+  {
+	"id": "mercenarys_bill",
+	"slot": "consequence",
+	"category": "war",
+	"season": "any",
+	"title": "The Mercenary's Bill",
+	"body": "The sellswords want paying. They are very large, and they are standing in your hall.",
+	"choices": [
+	  { "text": "Pay in full", "effects": { "treasury": -3 } },
+	  { "text": "Pay in titles and honors", "effects": { "faith": -1, "unrest": 1 } },
+	  { "text": "Don't pay; hope they leave", "effects": { "unrest": 2 }, "flags": [ { "id": "unpaid_mercs", "event_id": "mercenary_pillage", "in_hands": 3 } ] }
+	]
+  },
+  {
+	"id": "mercenary_pillage",
+	"slot": "plot",
+	"category": "war",
+	"season": "any",
+	"title": "The Mercenaries Help Themselves",
+	"body": "Unpaid and unbothered, the sellswords are pillaging the countryside to collect their own wages.",
+	"choices": [
+	  { "text": "Let them take their due", "effects": { "unrest": 2, "treasury": -1 } },
+	  { "text": "Pay them off, twice over, to leave", "effects": { "treasury": -4, "unrest": -1 } },
+	  { "text": "Hunt them down", "effects": { "treasury": -1, "unrest": -1 }, "traits": { "martial": 1 } }
+	]
+  },
+  {
+	"id": "marriage_of_convenience",
+	"slot": "seasonal",
+	"category": "court",
+	"season": "any",
+	"title": "A Marriage of Convenience",
+	"body": "A neighboring lord offers his daughter, a fat dowry, and a lucrative trade road.",
+	"choices": [
+	  { "text": "Accept the match", "effects": { "treasury": 3 } },
+	  { "text": "Haggle for a bigger dowry", "effects": { "treasury": 1, "faith": -1 }, "traits": { "purse": -1 } },
+	  { "text": "Marry for love instead", "effects": { "unrest": 1, "faith": -1 }, "traits": { "charm": 1 } }
+	]
+  },
+  {
+	"id": "relic_salesman",
+	"slot": "random",
+	"category": "faith",
+	"season": "any",
+	"title": "The Relic Salesman",
+	"body": "A friar sells you the actual finger bone of a saint. Remarkably, he has three more.",
+	"choices": [
+	  { "text": "Buy it; display it proudly", "effects": { "treasury": -1, "faith": 2, "unrest": 1 } },
+	  { "text": "Expose him as a fraud", "effects": { "faith": -1, "unrest": -1 }, "traits": { "cunning": 1 } },
+	  { "text": "Buy all four; make the town a pilgrim shrine", "effects": { "faith": 1 }, "traits": { "cunning": 1 }, "flags": [ { "id": "pilgrimage_racket", "event_id": "pilgrimage_profits", "in_hands": 4 } ] }
+	]
+  },
+  {
+	"id": "pilgrimage_profits",
+	"slot": "plot",
+	"category": "faith",
+	"season": "any",
+	"title": "The Pilgrim Road Pays",
+	"body": "Pilgrims queue for miles to kiss four suspiciously similar finger bones. The collection plate runneth over.",
+	"choices": [
+	  { "text": "Collect the profits", "effects": { "treasury": 2 } },
+	  { "text": "Redirect the takings to the poor", "effects": { "faith": 1, "unrest": -1 } }
+	]
+  },
+  {
+	"id": "bandits_trade_road",
+	"slot": "seasonal",
+	"category": "economy",
+	"season": "any",
+	"title": "Bandits on the Trade Road",
+	"body": "Your one profitable road is being taxed by men who hold no charter from you.",
+	"choices": [
+	  { "text": "Send soldiers to clear them", "effects": { "treasury": -1, "unrest": -1 }, "traits": { "martial": 1 }, "flags": [ { "id": "road_cleared", "event_id": "trade_road_tolls", "in_hands": 4 } ] },
+	  { "text": "Hire the bandits as tax men", "effects": { "treasury": 2, "unrest": 2 }, "traits": { "cunning": 1 } },
+	  { "text": "Ignore it", "effects": { "treasury": -1 } }
+	]
+  },
+  {
+	"id": "trade_road_tolls",
+	"slot": "plot",
+	"category": "economy",
+	"season": "any",
+	"title": "The Cleared Road Pays Tolls",
+	"body": "With the bandits gone, merchants flow freely again, and gladly pay for the privilege.",
+	"choices": [
+	  { "text": "Collect the tolls", "effects": { "treasury": 2 } },
+	  { "text": "Share the toll with the militia", "effects": { "treasury": 1, "unrest": -1 } }
+	]
+  },
+  {
+	"id": "famine_decree",
+	"slot": "seasonal",
+	"category": "economy",
+	"season": "autumn",
+	"title": "The Famine Decree",
+	"body": "Grain is scarce. There is enough for the court, or enough for the city. Not both.",
+	"choices": [
+	  { "text": "Feed the people; the court goes hungry", "effects": { "unrest": -3, "faith": 1 } },
+	  { "text": "Feed the court; sell the surplus high", "effects": { "treasury": 3, "unrest": 3 }, "traits": { "purse": -1 }, "prep": { "war_chest": 1 } },
+	  { "text": "Throw a feast to put a brave face on hunger", "effects": { "treasury": -2, "unrest": 1, "faith": -1 } }
+	]
+  },
+  {
+	"id": "saints_vision",
+	"slot": "random",
+	"category": "faith",
+	"season": "any",
+	"title": "A Saint's Vision",
+	"body": "A peasant girl says God speaks to her, and that He is displeased with your taxes.",
+	"choices": [
+	  { "text": "Canonize her; gently redirect the visions", "effects": { "faith": 2, "treasury": -1, "unrest": -1 }, "traits": { "cunning": 1 } },
+	  { "text": "Imprison her as a fraud", "effects": { "unrest": 2, "faith": -1 }, "traits": { "trust": -1 } },
+	  { "text": "Martyr her quietly", "effects": { "unrest": -1, "faith": -1 }, "traits": { "temperament": -1 }, "flags": [ { "id": "martyr_symbol", "event_id": "martyr_backlash", "in_hands": 3 } ] }
+	]
+  },
+  {
+	"id": "martyr_backlash",
+	"slot": "plot",
+	"category": "faith",
+	"season": "any",
+	"title": "The Cult of the Martyr",
+	"body": "The girl you silenced has become a saint in the streets, and her believers are no longer quiet.",
+	"choices": [
+	  { "text": "Suppress the cult", "effects": { "unrest": 2, "faith": -1 } },
+	  { "text": "Co-opt it; declare a holy day", "effects": { "faith": 2, "treasury": -1 } }
+	]
+  },
+  {
+	"id": "cadaver_synod",
+	"slot": "random",
+	"category": "faith",
+	"season": "any",
+	"title": "The Cadaver Synod",
+	"body": "The new Pope has dug up his predecessor, dressed the corpse in full regalia, and put it on trial for heresy.",
+	"choices": [
+	  { "text": "Endorse the spectacle", "effects": { "faith": 2, "unrest": 1 }, "traits": { "faith": -1 }, "flags": [ { "id": "endorsed_exhumation", "event_id": "your_exhumation", "in_hands": 6 } ] },
+	  { "text": "Mock it from afar", "effects": { "faith": -2, "unrest": -1 }, "traits": { "cunning": 1 } },
+	  { "text": "Send a sober envoy to lend dignity", "effects": { "treasury": -1, "faith": 1 } }
+	]
+  },
+  {
+	"id": "your_exhumation",
+	"slot": "plot",
+	"category": "faith",
+	"season": "any",
+	"title": "Precedent Comes Due",
+	"body": "A rival faction, citing the precedent you endorsed, proposes to try your own rule in absentia. It is, they insist, only fair.",
+	"choices": [
+	  { "text": "Ignore the mummery", "effects": { "faith": -1 } },
+	  { "text": "Publicly rebut the charges", "effects": { "treasury": -1, "faith": 1 } },
+	  { "text": "Have the mockers arrested", "effects": { "unrest": 2 }, "traits": { "temperament": -1 } }
+	]
+  },
+  {
+	"id": "war_of_the_bucket",
+	"slot": "seasonal",
+	"category": "war",
+	"season": "any",
+	"title": "The War of the Bucket",
+	"body": "Soldiers of a rival city have stolen a wooden bucket from your town well. It is, by any honest measure, a bucket.",
+	"choices": [
+	  { "text": "March to war over the bucket", "effects": { "treasury": -3, "unrest": 2 }, "traits": { "bearing": -1 }, "flags": [ { "id": "bucket_war", "event_id": "bucket_war_continues", "in_hands": 3 } ] },
+	  { "text": "Let it go; you own other buckets", "effects": { "faith": -1, "unrest": 1 } },
+	  { "text": "Demand a humiliating ransom for its return", "effects": { "treasury": 1, "unrest": 1 }, "traits": { "cunning": 1 } }
+	]
+  },
+  {
+	"id": "bucket_war_continues",
+	"slot": "plot",
+	"category": "war",
+	"season": "any",
+	"title": "The Bucket War Drags On",
+	"body": "Years on, the war over a wooden pail has cost more than the treasury it hangs in. Neither side will blink first.",
+	"choices": [
+	  { "text": "Sue for peace", "effects": { "treasury": -2, "unrest": -1 } },
+	  { "text": "Press the siege", "effects": { "treasury": -3, "unrest": 2 }, "traits": { "martial": 1 } }
+	]
+  },
+  {
+	"id": "king_of_glass",
+	"slot": "random",
+	"category": "court",
+	"season": "any",
+	"title": "The King of Glass",
+	"body": "A fellow monarch is convinced his body is made of glass. He has iron rods sewn into his clothes and begs your discreet counsel.",
+	"choices": [
+	  { "text": "Send sympathy and your best physician", "effects": { "treasury": -1, "faith": 1 }, "traits": { "vengefulness": 1 } },
+	  { "text": "Spread the tale to weaken his crown", "effects": { "faith": -1 }, "traits": { "cunning": 1 }, "flags": [ { "id": "glass_king_weakened", "event_id": "glass_kings_realm", "in_hands": 4 } ] },
+	  { "text": "Press your claim on his lands while he's mad", "effects": { "unrest": 1 }, "traits": { "purse": -1 }, "flags": [ { "id": "glass_king_claim", "event_id": "glass_king_lands", "in_hands": 4 } ] }
+	]
+  },
+  {
+	"id": "glass_kings_realm",
+	"slot": "plot",
+	"category": "court",
+	"season": "any",
+	"title": "A Crown Made of Glass Shatters",
+	"body": "The rumors you spread took root. The glass king's own nobles have moved against him, and his realm is up for the taking.",
+	"choices": [
+	  { "text": "Seize the opportunity", "effects": { "treasury": 3, "unrest": 1 } },
+	  { "text": "Stay above it", "effects": { "faith": 1 } }
+	]
+  },
+  {
+	"id": "glass_king_lands",
+	"slot": "plot",
+	"category": "economy",
+	"season": "any",
+	"title": "The Glass King's Lands",
+	"body": "The claim you pressed while he raved has quietly become fact. The annexed revenue arrives on schedule.",
+	"choices": [
+	  { "text": "Collect the annexed revenue", "effects": { "treasury": 2 } },
+	  { "text": "Grant it to the church instead", "effects": { "faith": 2 } }
+	]
+  },
+  {
+	"id": "pig_on_trial",
+	"slot": "random",
+	"category": "folk",
+	"season": "any",
+	"title": "The Pig on Trial",
+	"body": "A pig stands accused of murdering a child. It has been arrested, jailed, and assigned a lawyer mounting a spirited defense.",
+	"choices": [
+	  { "text": "Hold a solemn trial and hang the pig", "effects": { "treasury": -1, "faith": 1, "unrest": -1 } },
+	  { "text": "Pardon it; it's a pig", "effects": { "faith": -1, "unrest": 1 }, "traits": { "cunning": 1 } },
+	  { "text": "Try the owner instead and seize his farm", "effects": { "treasury": 2, "unrest": 1 }, "traits": { "temperament": -1, "purse": -1 } }
+	]
+  },
+  {
+	"id": "white_ship",
+	"slot": "plot",
+	"category": "court",
+	"season": "any",
+	"title": "The White Ship",
+	"body": "Your heir and the court's young nobles have seized the finest ship for a wine-drunk midnight crossing. The harbor-master begs you to forbid it.",
+	"choices": [
+	  { "text": "Forbid the voyage", "effects": { "unrest": 1 } },
+	  { "text": "Let youth be young", "effects": { "unrest": -1 }, "flags": [ { "id": "white_ship_sailed", "event_id": "white_ships_wake", "in_hands": 1 } ] },
+	  { "text": "Forgive the folly — but sail with them to keep order", "effects": { "treasury": -1, "faith": 1 }, "traits": { "vengefulness": 1 } }
+	]
+  },
+  {
+	"id": "white_ships_wake",
+	"slot": "plot",
+	"category": "court",
+	"season": "any",
+	"title": "The White Ship's Wake",
+	"body": "The ship struck a rock in the dark. The court is in mourning, the succession thrown into doubt, and the sea keeps its secrets.",
+	"choices": [
+	  { "text": "Mourn publicly; name a new heir", "effects": { "faith": 1, "unrest": -1 } },
+	  { "text": "Blame the drunken captain and move on", "effects": { "unrest": 1 }, "doom_mod": 1 }
+	]
+  },
+  {
+	"id": "flagellants",
+	"slot": "random",
+	"category": "faith",
+	"season": "any",
+	"title": "The Flagellants",
+	"body": "A procession of penitents winds through your streets, whipping themselves bloody to beg God to lift the plague.",
+	"choices": [
+	  { "text": "Join them; flog yourself publicly", "effects": { "faith": 3, "unrest": -1 } },
+	  { "text": "Ban them as a public nuisance", "effects": { "faith": -2, "unrest": 1 }, "traits": { "cunning": 1 } },
+	  { "text": "Sell them penance permits", "effects": { "treasury": 1, "faith": -1 }, "traits": { "purse": -1 } }
+	]
+  },
+  {
+	"id": "golden_nose",
+	"slot": "plot",
+	"category": "war",
+	"season": "any",
+	"title": "The Golden Nose",
+	"body": "A warlord your forebears once deposed and mutilated has returned at the head of an army, wearing a nose of solid gold and a grudge older than your reign.",
+	"choices": [
+	  { "text": "Pay him off lavishly", "effects": { "treasury": -3, "unrest": -1 } },
+	  { "text": "Meet him in battle", "effects": { "treasury": -2, "unrest": 2 }, "traits": { "bearing": -1 }, "flags": [ { "id": "golden_nose_battle", "event_id": "golden_nose_outcome", "in_hands": 1 } ] },
+	  { "text": "Offer marriage and a title", "effects": { "treasury": -1, "faith": 1 }, "traits": { "cunning": 1 } }
+	]
+  },
+  {
+	"id": "golden_nose_outcome",
+	"slot": "plot",
+	"category": "war",
+	"season": "any",
+	"title": "The Battle for the Throne",
+	"body": "Steel has decided what diplomacy could not. Word of the field reaches the court before the dust does.",
+	"choices": [
+	  { "text": "Claim victory; parade the gold nose", "effects": { "unrest": -2, "treasury": -1 }, "traits": { "martial": 1 } },
+	  { "text": "Sue for terms after heavy losses", "effects": { "treasury": -2, "unrest": 1 } },
+	  { "text": "Strip the fallen for coin and steel", "effects": { "treasury": 1, "faith": -1, "unrest": 1 }, "traits": { "temperament": -1 } }
+	]
+  },
+  {
+	"id": "childrens_crusade",
+	"slot": "random",
+	"category": "faith",
+	"season": "any",
+	"title": "The Children's Crusade",
+	"body": "A shepherd boy preaches that God has chosen the children to retake the Holy Land through purity alone. Thousands are massing to march.",
+	"choices": [
+	  { "text": "Forbid the march; send the children home to their mothers", "effects": { "faith": -2, "unrest": -1 }, "traits": { "vengefulness": 1 } },
+	  { "text": "Bless and fund the crusade", "effects": { "treasury": -2, "faith": 2 }, "flags": [ { "id": "crusade_marching", "event_id": "crusade_collapse", "in_hands": 3 } ] },
+	  { "text": "Sell the pilgrims passage on ships", "effects": { "treasury": 3, "faith": -2 }, "traits": { "temperament": -1, "purse": -1 } }
+	]
+  },
+  {
+	"id": "crusade_collapse",
+	"slot": "plot",
+	"category": "faith",
+	"season": "any",
+	"title": "The Crusade That Wasn't",
+	"body": "The sea did not part. Word trickles back of a march that ended in starvation and slave markets, and the bishop who blessed it is asked hard questions.",
+	"choices": [
+	  { "text": "Blame the shepherd boy", "effects": { "faith": -1, "unrest": -1 } },
+	  { "text": "Fund masses for the dead", "effects": { "treasury": -1, "faith": 1 } }
+	]
+  },
+  {
+	"id": "window_tax",
+	"slot": "seasonal",
+	"category": "economy",
+	"season": "any",
+	"title": "The Tax on Windows",
+	"body": "Your treasurer proposes taxing the things people cannot hide: beards, windows, the colour purple.",
+	"choices": [
+	  { "text": "Tax beards and windows", "effects": { "treasury": 2, "unrest": 1 }, "traits": { "purse": -1 } },
+	  { "text": "Tax only noble luxuries", "effects": { "treasury": 1, "faith": -1 }, "traits": { "cunning": 1 } },
+	  { "text": "Refuse — the crown does not hound its people", "effects": { "faith": 1 }, "traits": { "purse": 1 } }
+	]
+  },
+  {
+	"id": "relic_auction",
+	"slot": "random",
+	"category": "faith",
+	"season": "any",
+	"title": "The Relic Auction",
+	"body": "Your monasteries are in a bidding war over a saint's shinbone, a vial of holy tears, and a feather from the Angel Gabriel.",
+	"choices": [
+	  { "text": "Tax the relic trade", "effects": { "treasury": 2, "faith": -1 }, "traits": { "purse": -1 } },
+	  { "text": "Charge a royal fee to authenticate relics", "effects": { "treasury": 1, "faith": 1 }, "traits": { "cunning": 1 }, "flags": [ { "id": "relic_blessed", "event_id": "relic_exposed", "in_hands": 4 } ] },
+	  { "text": "Denounce the whole trade as blasphemy", "effects": { "treasury": -1, "faith": 2 } }
+	]
+  },
+  {
+	"id": "relic_exposed",
+	"slot": "plot",
+	"category": "faith",
+	"season": "any",
+	"title": "The Goat Bone Scandal",
+	"body": "A relic you personally authenticated has been identified, definitively, as a goat bone. The bishop is not amused.",
+	"choices": [
+	  { "text": "Deny it; double down", "effects": { "faith": -1 }, "traits": { "cunning": 1 } },
+	  { "text": "Publicly apologize and refund the faithful", "effects": { "treasury": -1, "faith": 1 } }
+	]
+  },
+  {
+	"id": "rat_plague",
+	"slot": "plot",
+	"category": "folk",
+	"season": "any",
+	"title": "The Rat Plague",
+	"body": "With the cats gone, the rats have inherited the granaries, and brought a fever with them.",
+	"choices": [
+	  { "text": "Fund a quarantine", "effects": { "treasury": -2, "unrest": -1 } },
+	  { "text": "Quietly reintroduce cats", "effects": { "faith": -1, "unrest": -1 }, "traits": { "cunning": 1 } }
+	]
+  },
+  {
+	"id": "spymasters_ledger",
+	"slot": "plot",
+	"category": "court",
+	"season": "any",
+	"requires": { "advisor": "spymaster" },
+	"title": "The Spymaster's Ledger",
+	"body": "Your Wren lays a ledger of rivals' secrets on the table and awaits your pleasure.",
+	"choices": [
+	  { "text": "Blackmail them quietly", "effects": { "treasury": 2 }, "traits": { "cunning": 1 }, "requires": { "advisor": "spymaster" }, "loyalty": { "spymaster": 1 } },
+	  { "text": "Burn the ledger; you want no part of it", "effects": { "faith": 1 } }
+	]
+  },
+  {
+	"id": "muster_the_levies",
+	"slot": "seasonal",
+	"category": "war",
+	"season": "any",
+	"requires": { "advisor": "marshal" },
+	"title": "Muster the Levies",
+	"body": "Your Marshal proposes a disciplined muster, fit only for a ruler who has led men before.",
+	"choices": [
+	  { "text": "Lead the muster yourself", "effects": { "unrest": -1 }, "prep": { "host": 1 }, "requires": { "skill": "martial", "min": 2 }, "loyalty": { "marshal": 1 } },
+	  { "text": "Let the Marshal handle it", "effects": { "treasury": -1, "unrest": -1 }, "prep": { "host": 1 } },
+	  { "text": "Hire sellswords to fill the ranks", "effects": { "treasury": -1 }, "prep": { "host": 2 }, "flags": [ { "id": "hired_mercs", "event_id": "mercenarys_bill", "in_hands": 3 } ] },
+	  { "text": "Skip it this year", "effects": { "unrest": 1 } }
+	]
+  },
+  {
+	"id": "marshal_defects",
+	"slot": "consequence",
+	"category": "war",
+	"season": "any",
+	"title": "The Marshal's Defection",
+	"body": "Your Marshal, unpaid too long, has taken half the garrison with him, to the enemy.",
+	"choices": [
+	  { "text": "Purge the disloyal ranks", "effects": { "unrest": 2 }, "traits": { "temperament": -1 } },
+	  { "text": "Buy back their loyalty", "effects": { "treasury": -3, "unrest": -1 } }
+	]
+  },
+  {
+	"id": "steward_defects",
+	"slot": "consequence",
+	"category": "economy",
+	"season": "any",
+	"title": "The Steward Vanishes",
+	"body": "Your Steward has fled in the night, with the tax ledgers, and no small amount of coin.",
+	"choices": [
+	  { "text": "Launch an inquiry", "effects": { "treasury": -1, "unrest": -1 } },
+	  { "text": "Let it go; appoint a replacement", "effects": { "treasury": -2 } }
+	]
+  },
+  {
+	"id": "priest_defects",
+	"slot": "consequence",
+	"category": "faith",
+	"season": "any",
+	"title": "The Priest's Excommunication",
+	"body": "Your Court Priest, spurned once too often, denounces you from the pulpit as unfit before God.",
+	"choices": [
+	  { "text": "Silence him", "effects": { "unrest": 2, "faith": -1 }, "traits": { "temperament": -1 } },
+	  { "text": "Make a public penance", "effects": { "faith": 1, "treasury": -1 } }
+	]
+  },
+  {
+	"id": "spymaster_defects",
+	"slot": "consequence",
+	"category": "court",
+	"season": "any",
+	"title": "The Spymaster Turns",
+	"body": "The Wren you starved of coin has sold your secrets to a rival court.",
+	"choices": [
+	  { "text": "Purge the informants", "effects": { "unrest": 1 }, "traits": { "trust": -1 } },
+	  { "text": "Sue for quiet terms", "effects": { "treasury": -2 } }
+	]
+  },
+  {
+	"id": "scholar_defects",
+	"slot": "consequence",
+	"category": "court",
+	"season": "any",
+	"title": "The Scholar's Betrayal",
+	"body": "Your Scholar, ignored and unpaid, has taken your library's secrets to a rival patron.",
+	"choices": [
+	  { "text": "Denounce the theft publicly", "effects": { "faith": -1, "unrest": 1 } },
+	  { "text": "Quietly rebuild the library", "effects": { "treasury": -2 } }
+	]
+  },
+  {
+	"id": "silk_road_offer",
+	"slot": "seasonal",
+	"category": "economy",
+	"season": "any",
+	"title": "The Silk Charter",
+	"body": "Eastern factors propose a standing silk road through your marches — rich, and perilously close to the steppe.",
+	"choices": [
+	  { "text": "Fund the caravanserai and open the road", "effects": { "treasury": -4 }, "trade": { "open": "silk_road" }, "requires": { "trade_closed": "silk_road" } },
+	  { "text": "Take a one-time toll and wave them through", "effects": { "treasury": 2 } },
+	  { "text": "Refuse; the road runs too near the horde", "effects": { "unrest": 1 } }
+	]
+  },
+  {
+	"id": "river_road_offer",
+	"slot": "seasonal",
+	"category": "economy",
+	"season": "any",
+	"title": "The River Guild",
+	"body": "The barge guilds petition to dredge the river and run regular trade — steady coin, if you fund the works.",
+	"choices": [
+	  { "text": "Charter the guild and open the river", "effects": { "treasury": -3 }, "trade": { "open": "river_road" }, "requires": { "trade_closed": "river_road" } },
+	  { "text": "Tax the fords as they are", "effects": { "treasury": 1 } },
+	  { "text": "The river serves the realm free; leave it", "effects": { "unrest": -1 } }
+	]
+  },
+  {
+	"id": "salt_coast_offer",
+	"slot": "seasonal",
+	"category": "economy",
+	"season": "any",
+	"title": "The Salt Harbor",
+	"body": "A shipwright offers to build a harbor and open the salt coast to sea trade — profit that rides the same tides as the plague.",
+	"choices": [
+	  { "text": "Build the harbor and open the coast", "effects": { "treasury": -3 }, "trade": { "open": "salt_coast" }, "requires": { "trade_closed": "salt_coast" } },
+	  { "text": "Sell the license to a merchant house", "effects": { "treasury": 2 } },
+	  { "text": "Decline; the sea brings more than salt", "effects": { "faith": 1 } }
+	]
+  },
+  {
+	"id": "trade_embargo",
+	"slot": "random",
+	"category": "economy",
+	"season": "any",
+	"title": "A Rival's Embargo",
+	"body": "A neighboring crown, nursing an old grudge, closes its markets and leans on yours to fall quiet too.",
+	"choices": [
+	  { "text": "Reroute through friendlier ports", "effects": { "treasury": -2 } },
+	  { "text": "Answer embargo with embargo", "effects": { "unrest": 1 }, "traits": { "vengefulness": -1 }, "trade": { "disrupt": 2 } },
+	  { "text": "Swallow the insult and let it pass", "effects": { "faith": 1, "unrest": 1 }, "traits": { "vengefulness": 1 } }
+	]
+  },
+  {
+	"id": "found_mint",
+	"slot": "seasonal",
+	"category": "economy",
+	"season": "any",
+	"requires": { "not_founded": "royal_mint" },
+	"title": "A Royal Mint",
+	"body": "Your Steward proposes striking your own coin. A mint of your own would enrich every reign that follows yours — if you can spare the silver to build it.",
+	"choices": [
+	  { "text": "Found the Royal Mint", "effects": { "treasury": -5 }, "found_institution": "royal_mint", "requires": { "treasury_min": 7, "not_founded": "royal_mint" } },
+	  { "text": "The old coin serves well enough", "effects": {} }
+	]
+  },
+  {
+	"id": "found_cathedral",
+	"slot": "seasonal",
+	"category": "faith",
+	"season": "any",
+	"requires": { "not_founded": "cathedral" },
+	"title": "A Great Cathedral",
+	"body": "The bishops beg you to raise a cathedral to shame the neighboring realms — a monument that would steady the faithful for generations.",
+	"choices": [
+	  { "text": "Raise the Great Cathedral", "effects": { "treasury": -6, "faith": 1 }, "found_institution": "cathedral", "requires": { "treasury_min": 8, "not_founded": "cathedral", "slider": "temperament", "min": -1 } },
+	  { "text": "Charity serves God better than stone", "effects": { "faith": 1, "unrest": -1 } }
+	]
+  },
+  {
+	"id": "found_university",
+	"slot": "seasonal",
+	"category": "court",
+	"season": "any",
+	"requires": { "not_founded": "university" },
+	"title": "A University",
+	"body": "Scholars petition for a hall of learning. Its graduates would tutor your heirs for centuries — a costly gift to descendants you will never meet.",
+	"choices": [
+	  { "text": "Charter the University", "effects": { "treasury": -5 }, "found_institution": "university", "requires": { "treasury_min": 7, "not_founded": "university" } },
+	  { "text": "A prince learns from the saddle, not scrolls", "effects": {}, "traits": { "martial": 1 } }
+	]
+  },
+  {
+	"id": "the_public_insult",
+	"slot": "random",
+	"category": "court",
+	"season": "any",
+	"title": "The Drunken Baron",
+	"body": "At the feast, a baron deep in his cups mocks your late father to your face. The hall falls silent, waiting to see what kind of king you are.",
+	"choices": [
+	  { "text": "Have him flogged before the court", "effects": { "unrest": 1 }, "traits": { "wrath": -1, "vengefulness": -1 } },
+	  { "text": "Laugh louder than he does, and refill his cup", "effects": { "unrest": -1 }, "traits": { "wrath": 1 } },
+	  { "text": "Pardon him with a cold smile — you are above it", "effects": { "faith": 1, "unrest": -1 }, "traits": { "bearing": -1 }, "requires": { "slider": "wrath", "min": 1 } }
+	]
+  },
+  {
+	"id": "the_royal_feast",
+	"slot": "seasonal",
+	"category": "court",
+	"season": "winter",
+	"title": "The Long Winter's Feast",
+	"body": "The court grows restless through the dark months. Your Steward counsels a distraction; your confessor, restraint.",
+	"choices": [
+	  { "text": "Throw a feast to outshine the neighbors", "effects": { "treasury": -2, "unrest": -1 }, "traits": { "temperance": -1 } },
+	  { "text": "Keep a plain and pious table", "effects": { "faith": 1 }, "traits": { "temperance": 1 } },
+	  { "text": "Give the feast's whole cost to the poor", "effects": { "faith": 1, "unrest": -1 }, "traits": { "purse": 1 }, "requires": { "slider": "temperance", "min": 1 } }
+	]
+  },
+  {
+	"id": "the_kings_favorite",
+	"slot": "random",
+	"category": "court",
+	"season": "any",
+	"title": "The King's Favorite",
+	"body": "A dazzling newcomer at court has caught your eye, and the whole realm is watching to see whether the crown keeps its head.",
+	"choices": [
+	  { "text": "Take the favorite to your chambers", "effects": { "unrest": 1, "faith": -1 }, "traits": { "appetite": -1 } },
+	  { "text": "Keep the flirtation courtly and no more", "effects": {}, "traits": { "appetite": 1 } },
+	  { "text": "Give them in marriage to a lord you trust", "effects": { "unrest": -1, "treasury": -1 }, "traits": { "trust": 1 }, "requires": { "slider": "appetite", "min": 1 } }
+	]
+  },
+  {
+	"id": "the_bandit_champion",
+	"slot": "random",
+	"category": "war",
+	"season": "any",
+	"title": "The Bandit Champion",
+	"body": "A brigand lord has grown bold enough to challenge the crown's own champion to single combat, and the border is watching.",
+	"choices": [
+	  { "text": "Ride out and face him yourself", "effects": { "unrest": -1 }, "traits": { "valor": 1, "bearing": -1 }, "prep": { "host": 1 } },
+	  { "text": "Send your best knight in your stead", "effects": { "treasury": -1 } },
+	  { "text": "Pay the brigand to slink away", "effects": { "treasury": -2 }, "traits": { "valor": -1 } },
+	  { "text": "Lead the whole host out and crush them", "effects": { "unrest": -1 }, "prep": { "host": 2 }, "requires": { "slider": "valor", "min": 1 } }
+	]
+  },
+  {
+	"id": "the_royal_library",
+	"slot": "seasonal",
+	"category": "court",
+	"season": "any",
+	"title": "The Royal Library",
+	"body": "Your Scholar unrolls plans for a great library, hinting its archives could unravel the oldest threats to the realm — for a ruler patient enough to read.",
+	"choices": [
+	  { "text": "Pore over the chronicles of past reckonings", "effects": {}, "doom_mod": -1, "requires": { "skill": "learning", "min": 2 } },
+	  { "text": "Fund the library and study there yourself", "effects": { "treasury": -2 }, "traits": { "learning": 1 } },
+	  { "text": "A king has no time for dust and scrolls", "effects": {} }
+	]
+  },
+  {
+	"id": "study_the_doom",
+	"slot": "seasonal",
+	"category": "war",
+	"season": "any",
+	"title": "Know the Coming Storm",
+	"body": "The Doom gathers on the horizon. Your Scholar proposes sending clever men to learn its weaknesses before it arrives, rather than merely bracing for it.",
+	"choices": [
+	  { "text": "Send scholars to study the enemy", "effects": {}, "prep": { "host": 1, "tribute": 1, "war_chest": 1 }, "requires": { "skill": "learning", "min": 1 } },
+	  { "text": "Trust in walls and swords alone", "effects": {} }
+	]
+  },
+  {
+	"id": "relic_peddler",
+	"slot": "random",
+	"category": "faith",
+	"season": "any",
+	"title": "The Relic Peddler",
+	"body": "A travelling merchant offers, for a price, the genuine finger-bone of a saint — the fourth genuine finger of that same saint you have been offered this year.",
+	"choices": [
+	  { "text": "Buy it; the faithful adore a relic", "effects": { "treasury": -2, "faith": 1, "unrest": -1 } },
+	  { "text": "Expose the fraud with a scholar's eye", "effects": { "unrest": 1 }, "traits": { "learning": 1 }, "requires": { "skill": "learning", "min": 1 } },
+	  { "text": "Commission a whole set of 'relics' to sell", "effects": { "treasury": 3, "faith": -1 }, "traits": { "purse": -1 } }
+	]
+  },
+  {
+	"id": "the_astronomer",
+	"slot": "random",
+	"category": "court",
+	"season": "any",
+	"title": "The Astronomer's Warning",
+	"body": "A wild-eyed stargazer bursts into court swearing the heavens foretell ruin, and begs coin for a tower to read them more clearly.",
+	"choices": [
+	  { "text": "Fund his observatory", "effects": { "treasury": -2 }, "traits": { "learning": 1 } },
+	  { "text": "Burn his charts as devilry", "effects": { "faith": 1, "unrest": 1 }, "traits": { "wrath": -1 } },
+	  { "text": "Nod gravely and forget him by supper", "effects": {} }
+	]
+  },
+  {
+	"id": "the_grand_tourney",
+	"slot": "seasonal",
+	"category": "court",
+	"season": "summer",
+	"title": "The Grand Tourney",
+	"body": "The lords clamor for a tournament — a chance for glory, for gambling, and for the crown to show itself magnificent.",
+	"choices": [
+	  { "text": "Host a lavish tourney", "effects": { "treasury": -2, "unrest": -1 }, "traits": { "temperance": -1 } },
+	  { "text": "Ride in the lists yourself", "effects": { "unrest": -1 }, "traits": { "valor": 1, "bearing": -1 } },
+	  { "text": "Cancel it — the coffers come first", "effects": { "unrest": 1 } }
+	]
+  },
+  {
+	"id": "the_lepers_at_the_gate",
+	"slot": "random",
+	"category": "faith",
+	"season": "any",
+	"title": "The Sick at the Gate",
+	"body": "A column of the plague-scarred and the leprous has gathered at the gate, begging sanctuary. The guildmasters want them gone; the friars, sheltered.",
+	"choices": [
+	  { "text": "Fund a hospice beyond the walls", "effects": { "treasury": -2, "faith": 1 }, "traits": { "temperament": 1 } },
+	  { "text": "Turn them away from the gates", "effects": { "unrest": -1, "faith": -1 }, "traits": { "temperament": -1 } },
+	  { "text": "Wash their feet before the whole court", "effects": { "faith": 2 }, "requires": { "slider": "faith", "max": -1 } }
+	]
+  },
+  {
+	"id": "the_drunken_knight",
+	"slot": "random",
+	"category": "court",
+	"season": "any",
+	"title": "The Drunken Confession",
+	"body": "Deep in his cups, a decorated knight loudly confesses to an old murder — and realizes, far too late, exactly who is listening.",
+	"choices": [
+	  { "text": "Pardon him, for a generous fee", "effects": { "treasury": 2, "faith": -1 }, "traits": { "purse": -1 } },
+	  { "text": "Hang him as the law demands", "effects": { "unrest": -1, "faith": 1 }, "traits": { "temperament": -1 } },
+	  { "text": "Pretend you heard nothing", "effects": {}, "requires": { "slider": "wrath", "min": 1 } }
+	]
+  },
+  {
+	"id": "the_foreign_bride",
+	"slot": "seasonal",
+	"category": "court",
+	"season": "any",
+	"title": "A Marriage of States",
+	"body": "A neighboring crown offers a match: their kin to your line, sealed with a dowry — and a web of obligations dressed up as affection.",
+	"choices": [
+	  { "text": "Accept the match and the dowry", "effects": { "treasury": 2 }, "traits": { "trust": 1 } },
+	  { "text": "Haggle for a richer settlement", "effects": { "treasury": 4 }, "requires": { "skill": "charm", "min": 1 } },
+	  { "text": "Refuse the match — the crown needs no bride", "effects": { "unrest": 1 }, "traits": { "appetite": 1 } }
+	]
+  },
+  {
+	"id": "the_quack_cure",
+	"slot": "random",
+	"category": "folk",
+	"season": "any",
+	"title": "The Miracle Cure",
+	"body": "A physician of great confidence and no known school offers a tonic he swears will turn aside any pestilence to come.",
+	"choices": [
+	  { "text": "Buy barrels of it for the people", "effects": { "treasury": -1, "unrest": -1 } },
+	  { "text": "Have your scholars test his claims first", "effects": { "treasury": -1 }, "doom_mod": -1, "requires": { "skill": "learning", "min": 1 } },
+	  { "text": "Run him out of town", "effects": { "unrest": 1 }, "traits": { "wrath": -1 } }
+	]
+  },
+  {
+	"id": "the_rebel_ballad",
+	"slot": "random",
+	"category": "folk",
+	"season": "any",
+	"title": "The Mocking Ballad",
+	"body": "A filthy song of the crown's every failing is sung in every tavern from the capital to the coast, and it will not die.",
+	"choices": [
+	  { "text": "Learn the words and laugh along", "effects": { "unrest": -1 }, "traits": { "wrath": 1 } },
+	  { "text": "Hunt down the balladeer", "effects": { "unrest": 1 }, "traits": { "wrath": -1, "vengefulness": -1 } },
+	  { "text": "Pay for a flattering counter-song", "effects": { "treasury": -1 }, "traits": { "bearing": -1 } }
+	]
+  },
+  {
+	"id": "the_moneylender",
+	"slot": "seasonal",
+	"category": "economy",
+	"season": "any",
+	"title": "The Moneylender's Offer",
+	"body": "A silken banker offers a loan large enough to solve this year's every problem — and to become next year's only one.",
+	"choices": [
+	  { "text": "Take the loan", "effects": { "treasury": 4 }, "flags": [ { "id": "the_debt", "event_id": "the_debt_due", "in_hands": 8 } ] },
+	  { "text": "Decline; debt is a leash", "effects": {} },
+	  { "text": "Take it — a cheating banker deserves no repayment", "effects": { "treasury": 4 }, "traits": { "trust": -1 }, "flags": [ { "id": "the_debt", "event_id": "the_debt_due", "in_hands": 8 } ] }
+	]
+  },
+  {
+	"id": "the_debt_due",
+	"slot": "consequence",
+	"category": "economy",
+	"season": "any",
+	"title": "The Debt Comes Due",
+	"body": "The silken banker returns, rather less silken now, with a sum owed that has quietly doubled somewhere in the counting.",
+	"choices": [
+	  { "text": "Pay what is owed", "effects": { "treasury": -5 } },
+	  { "text": "Default, and damn the consequences", "effects": { "faith": -1, "unrest": 1 }, "traits": { "purse": -1 } }
+	]
+  },
+  {
+	"id": "the_heirs_folly",
+	"slot": "random",
+	"category": "court",
+	"season": "any",
+	"title": "The Heir's Folly",
+	"body": "Word comes of your heir, a stolen horse, a bishop's garden, and a truly heroic quantity of wine.",
+	"choices": [
+	  { "text": "Hush it up, at cost", "effects": { "treasury": -1 }, "traits": { "trust": -1 } },
+	  { "text": "Let the magistrate have them, royal blood or no", "effects": { "unrest": -1 }, "traits": { "temperament": -1 } },
+	  { "text": "Privately, admire the sheer nerve of it", "effects": {}, "traits": { "valor": 1 } }
+	]
+  },
+  {
+	"id": "the_witch_trial",
+	"slot": "random",
+	"category": "faith",
+	"season": "any",
+	"title": "The Witch Trial",
+	"body": "A frightened village drags a widow before you, blaming her for their failed crops and demanding the crown's justice — by which they mean fire.",
+	"choices": [
+	  { "text": "Give the mob its verdict", "effects": { "faith": 1, "unrest": -1 }, "traits": { "temperament": -1 } },
+	  { "text": "Demand real evidence first", "effects": { "faith": -1, "unrest": 1 }, "traits": { "temperament": 1 }, "requires": { "skill": "learning", "min": 1 } },
+	  { "text": "Take the widow into your household", "effects": { "faith": -2, "treasury": -1 }, "traits": { "trust": 1 } }
+	]
+  },
+  {
+	"id": "the_bountiful_year",
+	"slot": "seasonal",
+	"category": "economy",
+	"season": "autumn",
+	"title": "The Bountiful Year",
+	"body": "For once the rains came kindly and the fields have answered. The realm has a surplus — and everyone has a strong opinion about it.",
+	"choices": [
+	  { "text": "Store the surplus against hard times", "effects": { "treasury": 2 }, "prep": { "war_chest": 1 } },
+	  { "text": "Throw open the granaries in celebration", "effects": { "unrest": -2 }, "traits": { "temperance": -1 } },
+	  { "text": "Cut taxes in thanks to the people", "effects": { "treasury": -1, "unrest": -2, "faith": 1 }, "requires": { "slider": "purse", "min": 1 } }
+	]
+  },
+  {
+	"id": "raid_opening",
+	"slot": "threat",
+	"category": "war",
+	"season": "any",
+	"title": "Raiders at the Marches",
+	"body": "Horsemen from beyond the marches are testing your border — burning a hamlet, then melting away before the levy can form.",
+	"choices": [
+	  { "text": "Ride with the levy yourself and scatter them", "effects": { "unrest": -1 }, "traits": { "bearing": 1 }, "prep": { "host": 1 }, "requires": { "skill": "martial", "min": 2 } },
+	  { "text": "Buy them off with a chest of silver", "effects": { "treasury": -2 } },
+	  { "text": "The walls will hold — leave it", "effects": { "unrest": 1 }, "flags": [ { "id": "threat_border_raid_esc", "event_id": "raid_escalation", "in_hands": 3 } ] }
+	]
+  },
+  {
+	"id": "raid_escalation",
+	"slot": "threat",
+	"category": "war",
+	"season": "any",
+	"title": "The Marches Burn",
+	"body": "The raids no longer vanish. The marcher lords beg for troops; smoke stands where villages stood a season ago.",
+	"choices": [
+	  { "text": "Muster the levies in force", "effects": { "treasury": -2, "unrest": 1 }, "prep": { "host": 2 } },
+	  { "text": "Pay a far heavier tribute", "effects": { "treasury": -3 } },
+	  { "text": "Let the borderlands fend for themselves", "effects": { "unrest": 1 }, "flags": [ { "id": "threat_border_raid_crisis", "event_id": "raid_crisis", "in_hands": 3 } ] }
+	]
+  },
+  {
+	"id": "raid_crisis",
+	"slot": "threat",
+	"category": "war",
+	"season": "any",
+	"title": "A Province Lost",
+	"body": "A whole province is sacked, and its surviving lords now ride under the raiders' banner. The march is gone — only the price of the lesson remains.",
+	"choices": [
+	  { "text": "Retake it by fire and blood", "effects": { "treasury": -2, "unrest": 2 }, "doom_mod": 1, "trade": { "disrupt": 2 }, "requires": { "military": 1 } },
+	  { "text": "Abandon the march; a king does not bargain for scraps", "effects": { "treasury": -1, "unrest": 1 }, "traits": { "bearing": -1 }, "doom_mod": 1, "trade": { "disrupt": 3 } }
+	]
+  },
+  {
+	"id": "coup_opening",
+	"slot": "threat",
+	"category": "court",
+	"season": "any",
+	"title": "Whispers of a Coup",
+	"body": "Your Marshal dines a little too often, and a little too late, with the realm's most disappointed lords.",
+	"choices": [
+	  { "text": "Have the Wren expose the plotters", "effects": { "unrest": -1 }, "loyalty": { "spymaster": 1 }, "requires": { "advisor": "spymaster" } },
+	  { "text": "Buy their loyalty with gold and titles", "effects": { "treasury": -2, "unrest": -1 } },
+	  { "text": "A king does not flinch at table-gossip", "effects": { "unrest": 1 }, "flags": [ { "id": "threat_coup_esc", "event_id": "coup_escalation", "in_hands": 3 } ] }
+	]
+  },
+  {
+	"id": "coup_escalation",
+	"slot": "threat",
+	"category": "court",
+	"season": "any",
+	"title": "The Conspiracy Has a Banner",
+	"body": "The grumbling has a banner now, and a claimant with a plausible drop of royal blood in his veins.",
+	"choices": [
+	  { "text": "Take the ringleaders' heads; pardon the rest", "effects": { "unrest": 1 }, "traits": { "vengefulness": 1, "temperament": -1 } },
+	  { "text": "Summon loyal swords to overawe them", "effects": { "treasury": -2, "unrest": -1 }, "requires": { "military": 1 } },
+	  { "text": "Trust in divine right and do nothing", "effects": { "unrest": 1 }, "flags": [ { "id": "threat_coup_crisis", "event_id": "coup_crisis", "in_hands": 3 } ] }
+	]
+  },
+  {
+	"id": "coup_crisis",
+	"slot": "threat",
+	"category": "court",
+	"season": "any",
+	"title": "Men in the Corridors",
+	"body": "Armed men fill the halls outside the throne room. The realm will learn tonight whether you are its king or merely its guest.",
+	"choices": [
+	  { "text": "Stand and fight among your own guardsmen", "effects": { "unrest": 2 }, "traits": { "bearing": 1 }, "requires": { "military": 2 } },
+	  { "text": "Slip away — gold will win back what is yours by right", "effects": { "faith": -1, "treasury": -2 }, "traits": { "bearing": -1 }, "doom_mod": 1 }
+	]
+  },
+  {
+	"id": "harvest_opening",
+	"slot": "threat",
+	"category": "economy",
+	"season": "any",
+	"title": "A Failing Harvest",
+	"body": "The spring rains never came. The Steward's granary tallies are written in an increasingly shaky hand.",
+	"choices": [
+	  { "text": "Open the royal stores in good time", "effects": { "treasury": -2, "unrest": -1 }, "requires": { "skill": "stewardship", "min": 1 } },
+	  { "text": "Buy grain from foreign factors", "effects": { "treasury": -2, "unrest": -1 } },
+	  { "text": "The peasants have cried wolf before", "effects": { "unrest": 1 }, "flags": [ { "id": "threat_bad_harvest_esc", "event_id": "harvest_escalation", "in_hands": 3 } ] }
+	]
+  },
+  {
+	"id": "harvest_escalation",
+	"slot": "threat",
+	"category": "economy",
+	"season": "any",
+	"title": "Bread Riots",
+	"body": "Famine. Riots in the market towns; mothers hold up hollow-cheeked children at your gate.",
+	"choices": [
+	  { "text": "Emergency relief, whatever it costs", "effects": { "treasury": -3, "unrest": -1, "faith": 1 } },
+	  { "text": "Seize the hoarders' grain and give it to the mob", "effects": { "treasury": 2, "unrest": 1 }, "traits": { "temperament": -1, "purse": 1 } },
+	  { "text": "Let the winter thin the hungry", "effects": { "unrest": 1 }, "flags": [ { "id": "threat_bad_harvest_crisis", "event_id": "harvest_crisis", "in_hands": 3 } ] }
+	]
+  },
+  {
+	"id": "harvest_crisis",
+	"slot": "threat",
+	"category": "economy",
+	"season": "any",
+	"title": "The Hunger Winter",
+	"body": "Starvation empties whole villages, and fever always walks a step behind hunger. The dead begin to outnumber the ploughs.",
+	"choices": [
+	  { "text": "Beg the Church to open its alms", "effects": { "faith": -1, "unrest": 1, "treasury": 1 } },
+	  { "text": "Endure it, and bury the dead in pits", "effects": { "unrest": 2 }, "doom_mod": 1 }
+	]
+  },
+  {
+	"id": "heresy_opening",
+	"slot": "threat",
+	"category": "faith",
+	"season": "any",
+	"title": "A Rising Heresy",
+	"body": "A hedge-preacher draws crowds by claiming your priests sell forged keys to Heaven — and that God keeps no court at your chapel.",
+	"choices": [
+	  { "text": "Best them in open debate", "effects": { "faith": 1, "unrest": -1 }, "requires": { "skill": "charm", "min": 1 } },
+	  { "text": "Suppress them by force — the Church will thank you", "effects": { "faith": 1, "unrest": 1 } },
+	  { "text": "Quietly grant a few of their reforms", "effects": { "faith": -1, "unrest": -1 } },
+	  { "text": "Heresy withers if you starve it of attention", "effects": { "unrest": 1 }, "flags": [ { "id": "threat_heresy_esc", "event_id": "heresy_escalation", "in_hands": 3 } ] }
+	]
+  },
+  {
+	"id": "heresy_escalation",
+	"slot": "threat",
+	"category": "faith",
+	"season": "any",
+	"title": "The Sect Takes Root",
+	"body": "The sect has its own churches now, its own collectors — and its first martyrs, which is worse than either.",
+	"choices": [
+	  { "text": "Burn the ringleaders; absolve their misled flock", "effects": { "faith": 1, "unrest": 1 }, "traits": { "vengefulness": 1 }, "doom_mod": 1 },
+	  { "text": "Sign an edict of tolerance", "effects": { "faith": -2, "unrest": -2 } },
+	  { "text": "Leave it to the bishops", "effects": { "unrest": 1 }, "flags": [ { "id": "threat_heresy_crisis", "event_id": "heresy_crisis", "in_hands": 3 } ] }
+	]
+  },
+  {
+	"id": "heresy_crisis",
+	"slot": "threat",
+	"category": "faith",
+	"season": "any",
+	"title": "A Realm of Two Faiths",
+	"body": "Two faiths, two tithes, two armies. The realm has quietly split its soul, and both halves are arming.",
+	"choices": [
+	  { "text": "Wage holy war on your own people", "effects": { "unrest": 2, "treasury": -2, "faith": 1 }, "doom_mod": 1 },
+	  { "text": "Legitimize the new church — a gift, never a surrender", "effects": { "faith": -3, "unrest": -1 }, "traits": { "bearing": -1 } }
+	]
+  },
+  {
+	"id": "scheme_opening",
+	"slot": "threat",
+	"category": "court",
+	"season": "any",
+	"title": "A Rival's Scheme",
+	"body": "A cousin with an inconveniently good claim has begun smiling at court with the patience of a man who expects to inherit.",
+	"choices": [
+	  { "text": "Smile back, and patiently unpick their web", "effects": { "unrest": -1 }, "traits": { "bearing": 1 }, "requires": { "skill": "cunning", "min": 2 } },
+	  { "text": "Marry them off to a cold and distant keep", "effects": { "treasury": -2 } },
+	  { "text": "Let the cousin smile", "effects": { "unrest": 1 }, "flags": [ { "id": "threat_rival_scheme_esc", "event_id": "scheme_escalation", "in_hands": 3 } ] }
+	]
+  },
+  {
+	"id": "scheme_escalation",
+	"slot": "threat",
+	"category": "court",
+	"season": "any",
+	"title": "The Claimant Gathers Friends",
+	"body": "Your cousin now has friends in three provinces, a chest of foreign gold, and a genealogist on retainer.",
+	"choices": [
+	  { "text": "Bribe their friends back to your side", "effects": { "treasury": -3, "unrest": -1 } },
+	  { "text": "Have the Wren break the plot, then pardon your cousin", "effects": { "unrest": -1 }, "traits": { "vengefulness": 1, "temperament": -1 }, "requires": { "advisor": "spymaster" } },
+	  { "text": "Ignore the upstart's theatrics", "effects": { "unrest": 1 }, "flags": [ { "id": "threat_rival_scheme_crisis", "event_id": "scheme_crisis", "in_hands": 3 } ] }
+	]
+  },
+  {
+	"id": "scheme_crisis",
+	"slot": "threat",
+	"category": "court",
+	"season": "any",
+	"title": "War Between Kin",
+	"body": "The cousin raises a banner in the west. It is the oldest and ugliest of wars — the kind fought between kin.",
+	"choices": [
+	  { "text": "Crush the pretender in the field", "effects": { "treasury": -2, "unrest": 1 }, "doom_mod": 1, "trade": { "disrupt": 2 }, "requires": { "military": 1 } },
+	  { "text": "Carve off a duchy to buy peace", "effects": { "treasury": -1, "unrest": -1 }, "traits": { "bearing": -1 }, "doom_mod": 1, "trade": { "disrupt": 2 } }
+	]
+  },
+{
+	"id": "spring_floods",
+	"slot": "seasonal",
+	"category": "folk",
+	"season": "spring",
+	"title": "The River Takes the Low Fields",
+	"body": "The thaw came all at once. The river has swallowed the low fields, and three villages sit on their rooftops watching the seed grain float away.",
+	"choices": [
+	  { "text": "Send boats, grain, and royal masons", "effects": { "treasury": -2, "unrest": -1, "faith": 1 }, "traits": { "stewardship": 1 } },
+	  { "text": "Declare the flood God's judgment on the villages", "effects": { "faith": 1, "unrest": 1 }, "traits": { "faith": -1 } },
+	  { "text": "Buy the drowned land cheap from the desperate", "effects": { "treasury": 2, "unrest": 1 }, "traits": { "purse": -1 } }
+	]
+  },
+  {
+	"id": "midsummer_fires",
+	"slot": "seasonal",
+	"category": "folk",
+	"season": "summer",
+	"title": "The Midsummer Fires",
+	"body": "On the shortest night the hills burn with bonfires, and the villages dance around them in ways the Church prefers not to see.",
+	"choices": [
+	  { "text": "Join the dancing until dawn", "effects": { "unrest": -2, "faith": -1 }, "traits": { "temperance": -1, "appetite": -1 } },
+	  { "text": "Watch from horseback, then ride home early", "effects": {}, "traits": { "temperance": 1 } },
+	  { "text": "Send priests to turn the fires into a saint's vigil", "effects": { "faith": 2, "unrest": 1 }, "traits": { "faith": -1 } }
+	]
+  },
+  {
+	"id": "winter_wolves",
+	"slot": "seasonal",
+	"category": "folk",
+	"season": "winter",
+	"title": "The Wolves Come Down",
+	"body": "Hard cold has driven the wolves out of the high forest. They have taken sheep, then a swineherd, and the villages bar their doors at dusk.",
+	"choices": [
+	  { "text": "Lead the wolf-hunt yourself", "effects": { "unrest": -1 }, "traits": { "valor": 1 }, "requires": { "skill": "martial", "min": 1 } },
+	  { "text": "Post a bounty on every pelt", "effects": { "treasury": -1, "unrest": -1 } },
+	  { "text": "Wolves thin only the careless; do nothing", "effects": { "unrest": 1 }, "traits": { "valor": -1 } }
+	]
+  },
+  {
+	"id": "the_khans_toll",
+	"slot": "random",
+	"category": "war",
+	"season": "any",
+	"title": "The Khan's Tax-Men",
+	"body": "Riders of the Horde arrive a season early, unarmed and unhurried, to count your herds and granaries for the khan's toll. Their confidence is its own kind of army.",
+	"choices": [
+	  { "text": "Pay the toll with what you wrung from your own villages", "effects": { "treasury": -2, "unrest": 1 }, "traits": { "temperament": -1 }, "prep": { "tribute": 2 }, "requires": { "slider": "temperament", "max": 0 } },
+	  { "text": "Send them home counted, weighed, and empty-handed", "effects": { "unrest": -1 }, "traits": { "vengefulness": -1 }, "doom_mod": 1 },
+	  { "text": "Wine them well and plead a poor year", "effects": { "treasury": -1 }, "prep": { "nomad_pact": 1 }, "requires": { "skill": "charm", "min": 1 } }
+	]
+  },
+  {
+	"id": "the_confessors_penance",
+	"slot": "random",
+	"category": "faith",
+	"season": "any",
+	"title": "The Confessor Knows",
+	"body": "Your confessor has heard what the court only whispers of you and the chamberlain's wife. He proposes a penance — public enough to be seen, private enough to be survived.",
+	"choices": [
+	  { "text": "Do the penance, barefoot and seen", "effects": { "faith": 2, "unrest": -1 }, "traits": { "appetite": 1, "bearing": 1 } },
+	  { "text": "Keep the sin; pay for new chapel bells", "effects": { "treasury": -2, "faith": 1 }, "traits": { "appetite": -1 } },
+	  { "text": "Remind him what befalls talkative priests", "effects": { "faith": -2 }, "traits": { "temperament": -1, "trust": -1 } }
+	]
+  },
+  {
+	"id": "the_autumn_masque",
+	"slot": "seasonal",
+	"category": "court",
+	"season": "autumn",
+	"title": "The Masque of the Dead Kings",
+	"body": "For the autumn feast the players propose a masque of your ancestors, crowns of gilt paper and all. Half the court finds it splendid; the other half, treason in fancy dress.",
+	"choices": [
+	  { "text": "Let them play, and laugh loudest at your father", "effects": { "unrest": -1, "faith": -1 }, "traits": { "wrath": 1 } },
+	  { "text": "Forbid all mockery of the royal dead", "effects": { "unrest": 1 }, "traits": { "bearing": -1 } },
+	  { "text": "Commission it grander, with yourself as the hero", "effects": { "treasury": -2, "unrest": -1 }, "traits": { "temperance": -1, "bearing": -1 } }
+	]
+  },
+  {
+	"id": "the_dowagers_court",
+	"slot": "random",
+	"category": "court",
+	"season": "any",
+	"title": "The Dowager's Court",
+	"body": "Your mother has begun holding a court of her own — smaller than yours, and better attended. Petitioners leave her chambers with promises you never made.",
+	"choices": [
+	  { "text": "Honour her counsel and share the petitions", "effects": { "unrest": -1 }, "traits": { "trust": 1, "bearing": 1 } },
+	  { "text": "Retire her to a convent, with full ceremony", "effects": { "faith": 1, "unrest": 1 }, "traits": { "trust": -1 } },
+	  { "text": "Win her courtiers back, one flattery at a time", "effects": { "treasury": -1, "unrest": -1 }, "requires": { "skill": "charm", "min": 1 } }
+	]
+  },
+  {
+	"id": "the_ordeal_by_water",
+	"slot": "random",
+	"category": "folk",
+	"season": "any",
+	"title": "The Ordeal by Water",
+	"body": "Two villages dispute a mill, and both demand the old justice: bind the accused miller and let the river judge him. Your magistrate would rather read the deeds.",
+	"choices": [
+	  { "text": "Let the river judge, as the fathers did", "effects": { "faith": 1, "unrest": -1 }, "traits": { "faith": -1 } },
+	  { "text": "Rule by the deeds and the testimony", "effects": { "faith": -1 }, "traits": { "learning": 1 }, "requires": { "skill": "learning", "min": 1 } },
+	  { "text": "Fine both villages for wasting the crown's day", "effects": { "treasury": 1, "unrest": 1 }, "traits": { "wrath": -1 } }
+	]
+  }
+]

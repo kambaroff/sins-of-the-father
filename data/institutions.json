@@ -1,0 +1,5 @@
+[
+  { "id": "royal_mint", "name": "The Royal Mint",      "found_cost": 5, "upkeep": 1, "effect": { "income": 2 } },
+  { "id": "cathedral",  "name": "The Great Cathedral",  "found_cost": 6, "upkeep": 1, "effect": { "unrest_relief": 1 } },
+  { "id": "university", "name": "The University",        "found_cost": 5, "upkeep": 1, "effect": { "heir_skill": 1 } }
+]

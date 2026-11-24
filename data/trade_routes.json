@@ -1,0 +1,5 @@
+[
+  { "id": "river_road", "name": "The River Road", "income": 2, "open_cost": 3, "peril": "none" },
+  { "id": "silk_road",  "name": "The Silk Road",  "income": 3, "open_cost": 4, "peril": "steppe_horde" },
+  { "id": "salt_coast", "name": "The Salt Coast", "income": 2, "open_cost": 3, "peril": "black_death" }
+]

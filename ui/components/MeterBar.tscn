@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://sotf_meterbar"]
+
+[ext_resource type="Script" path="res://ui/components/MeterBar.gd" id="1"]
+
+[node name="MeterBar" type="HBoxContainer"]
+script = ExtResource("1")
+
+[node name="Icon" type="Label" parent="."]
+text = "•"
+
+[node name="NameLabel" type="Label" parent="."]
+text = "Meter"
+
+[node name="Bar" type="ProgressBar" parent="."]
+custom_minimum_size = Vector2(160, 0)
+min_value = 0.0
+max_value = 10.0
+show_percentage = false
+
+[node name="ValueLabel" type="Label" parent="."]
+text = "0"

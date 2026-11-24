@@ -1,0 +1,7 @@
+[
+  { "id": "border_raid",  "title": "Raiders at the Marches", "opening_event": "raid_opening",    "vuln": "low_defense" },
+  { "id": "coup",         "title": "Whispers of a Coup",     "opening_event": "coup_opening",    "vuln": "low_loyalty" },
+  { "id": "bad_harvest",  "title": "A Failing Harvest",      "opening_event": "harvest_opening", "vuln": "low_treasury" },
+  { "id": "heresy",       "title": "A Rising Heresy",        "opening_event": "heresy_opening",  "vuln": "faith_extreme" },
+  { "id": "rival_scheme", "title": "A Rival's Scheme",       "opening_event": "scheme_opening",  "vuln": "none" }
+]

@@ -1,0 +1,17 @@
+# Godot caches
+.godot/
+export_presets.cfg
+
+# GPU shader cache written next to the project
+NVIDIA Corporation/
+
+# Local scratch: screenshot tool output and logs
+_shot_*.png
+_shot_*.png.import
+_succession_shot.png
+_succession_shot.png.import
+_matrix.log
+
+# Machine-specific agent settings
+.claude/settings.local.json
+.codex/config.toml
